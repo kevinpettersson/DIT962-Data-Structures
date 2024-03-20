@@ -1,5 +1,4 @@
 
-
 -- Binary search
 
 binarySearch :: (Ord a) => [a] -> a -> Maybe Int
@@ -7,7 +6,7 @@ binarySearch [] _       = Nothing
 binarySearch xs target  = binarySearchHelper xs target 0 (length xs - 1)
 
 binarySearchHelper :: (Ord a) => [a] -> a -> Int -> Int -> Maybe Int
-binarySearchHelper xs target start end 
+binarySearchHelper xs target start end
     | start > end          = Nothing
     | middleElem == target = Just middleIndex
     | middleElem > target  = binarySearchHelper xs target start middleIndex

@@ -46,6 +46,22 @@ public class ex1 {
         }
     }
 
+    public static String interleave(String a, String b){
+        StringBuilder sb = new StringBuilder();
+        
+        int n = Math.max(a.length(), b.length());
+        
+        for(int i = 0; i < n; i++){
+            if (i < a.length()){
+                sb.append(a.charAt(i));
+            }
+            if (i < b.length()){
+                sb.append(b.charAt(i));
+            }
+        }
+        return sb.toString();
+    }
+
     public static void main(String[] args){
 
         // Create dynamic array \\
@@ -81,5 +97,24 @@ public class ex1 {
         tmp.add(5);
         tmp.add(6);
         System.out.println(binarySearch(tmp, 6, 0, 5));
+
+        // Time complexity tests \\
+
+        int n = 5;
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                sum += 1;
+            }
+        }
+
+        System.out.println(sum);
+
+        // Interleave two strings \\
+        String anna = "anna";
+        String patte = "patrik";
+
+        System.out.println(interleave(anna, patte));
     }
+
 }

@@ -1,4 +1,5 @@
 
+
 -- Binary search
 
 binarySearch :: (Ord a) => [a] -> a -> Maybe Int
@@ -28,3 +29,10 @@ rev :: [a] -> [a]
 rev [] = []
 rev (x:xs) = rev xs ++ [x]
 
+-- Interleave two strings
+
+interleave :: String -> String -> String
+interleave "" ""         = ""
+interleave "" ys         = ys
+interleave xs ""         = xs
+interleave (x:xs) (y:ys) = x : y : interleave xs ys

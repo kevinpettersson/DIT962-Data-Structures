@@ -1,6 +1,7 @@
-
+import java.util.ArrayList;
 import java.util.Arrays;
-
+import java.util.random.*;
+import java.util.ArrayList.*;
 public class Lab1 {
     /** Sorting algorithms **/
 
@@ -61,16 +62,17 @@ public class Lab1 {
         int pointerRight = end;
 
         while(pointerLeft <= pointerRight){      //Will increment/decrement the pointers as long as the pointers pointing at "sorted" elements.
-            while(array[pointerLeft] <= pivot && pointerLeft < pointerRight) { pointerLeft++; }
-    
-            while(array[pointerRight] >= pivot && pointerLeft < pointerRight){ pointerRight--; }
 
-            if(pointerLeft <= pointerRight){
+            while(pointerLeft <= pointerRight && array[pointerLeft] <= pivot) { pointerLeft++; }
+    
+            while(pointerLeft <= pointerRight && array[pointerRight] >= pivot) { pointerRight--; }
+
+            if(pointerLeft < pointerRight){
                 swap(array, pointerLeft, pointerRight);
             }
         }
-                                                //When the left pointer is larger than or equal to the right pointer
-        swap(array, pointerRight, begin);       //we know that the pivot should be placed in that index.
+                                                
+        swap(array, pointerRight, begin);       //Always swap the right pointer with the pivot.
         
         return pointerRight;                    //Return the index of where the pivot element ended up.
     }

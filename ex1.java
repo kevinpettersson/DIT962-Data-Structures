@@ -29,18 +29,18 @@ public class ex1 {
     
                 return binarySearch(list, target, start, middle - 1);
             }
-            else return binarySearch(list, target, middle +1 , end);
+            else return binarySearch(list, target, middle +1, end);
         }
         return -1;
     }
 
     // Reverse an array
 
-    public static void reverse(ArrayList<Integer> list){
+    public static <E> void reverse(ArrayList<E> list){
         int size = list.size();
 
         for (int i = 0, j = size - 1; i < size / 2; i++, j--) {
-            int temp = list.get(i);
+            E temp = list.get(i);
             list.set(i, list.get(j));
             list.set(j, temp);    
         }

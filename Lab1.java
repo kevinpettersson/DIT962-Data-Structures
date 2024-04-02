@@ -1,24 +1,19 @@
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.random.*;
-import java.util.ArrayList.*;
 public class Lab1 {
     /** Sorting algorithms **/
 
    public static void main(String[] args){
-        System.out.println("Insertion sort nedan");
         int[] tmp = {2,1,5,17,3,7,4,99,323,5,214};
         insertionSort(tmp);
         System.out.println(Arrays.toString(tmp));
 
-        System.out.println("Quick-sort nedan");
         int[] tmp2 = {2,1,5,17,3,7,4,99,323,5,214};
         int[] tmp4 = {0,2};
         quickSort(tmp4, 0, tmp4.length-1);
         System.out.println(Arrays.toString(tmp4));
         quickSort(tmp2, 0, tmp2.length -1);
         System.out.println(Arrays.toString(tmp2));
-        System.out.println("Merge-sort nedan");
+
         int[] tmp3 = {2,1,5,17,3,7,4,99,323,5,214};
         mergeSort(tmp3);
         System.out.println(Arrays.toString(tmp3));

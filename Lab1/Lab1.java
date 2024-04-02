@@ -1,3 +1,4 @@
+package Lab1;
 import java.util.Arrays;
 public class Lab1 {
     /** Sorting algorithms **/

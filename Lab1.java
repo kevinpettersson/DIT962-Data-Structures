@@ -61,19 +61,12 @@ public class Lab1 {
 
         while(pointerLeft <= pointerRight){      //Will increment/decrement the pointers as long as the pointers pointing at "sorted" elements.
 
-            while(array[pointerLeft] < pivot && pointerLeft < pointerRight) { pointerLeft++; }
+            while(array[pointerLeft] <= pivot && pointerLeft < pointerRight) { pointerLeft++; }
     
-            while(array[pointerRight] > pivot && pointerLeft < pointerRight){ pointerRight--; }
+            while(array[pointerRight] >= pivot && pointerLeft < pointerRight){ pointerRight--; }
 
-            if(pointerLeft != pointerRight){
+            if(pointerLeft <= pointerRight){
                 swap(array, pointerLeft, pointerRight);
-                pointerLeft++;
-                pointerRight--;
-            }
-            
-            if(pointerLeft == pointerRight){
-                pointerLeft++;
-                pointerRight--;
             }
         }
                                                 //When the left pointer is larger than or equal to the right pointer

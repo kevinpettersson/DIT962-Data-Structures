@@ -10,9 +10,9 @@ public class Lab1 {
 
         int[] tmp2 = {2,1,5,17,3,7,4,99,323,5,214};
         int[] tmp4 = {0,2};
-        quickSort(tmp4, 0, tmp4.length-1);
+        sort(tmp4, 0, tmp4.length-1);
         System.out.println(Arrays.toString(tmp4));
-        quickSort(tmp2, 0, tmp2.length -1);
+        sort(tmp2, 0, tmp2.length -1);
         System.out.println(Arrays.toString(tmp2));
 
         int[] tmp3 = {2,1,5,17,3,7,4,99,323,5,214};
@@ -40,15 +40,19 @@ public class Lab1 {
 
     // Quick sort.
 
-    public static void quickSort(int[] array, int begin, int end){
+    public static void quickSort(int[] array){
+        sort(array, 0, array.length-1);
+    }
+
+    public static void sort(int[] array, int begin, int end){
         
         if(begin >= end){                          //When the array is sorted the subarray will only have 1 element and we imeditely return the method. 
 
             return;
         }
         int pivot = partition(array, begin, end);
-        quickSort(array, begin, pivot-1);          // Recursive calls to sort the subarrays, with the right indices.
-        quickSort(array, pivot+1, end);
+        sort(array, begin, pivot-1);              // Recursive calls to sort the subarrays, with the right indices.
+        sort(array, pivot+1, end);
     }
 
     private static int partition(int[] array, int begin, int end) {
@@ -75,11 +79,11 @@ public class Lab1 {
 
     // Mergesort.
 
-    public static void mergeSort(int[] array) {
+    public static int[] mergeSort(int[] array) {
         int length = array.length;
 
         if(length < 2){       
-            return;
+            return array;
         }
 
         int mid = length / 2;
@@ -95,11 +99,11 @@ public class Lab1 {
 
         mergeSort(leftArr);                     //Recursive calls for each splitted array.
         mergeSort(rightArr);
-        merge(array, leftArr, rightArr);
+        return merge(array, leftArr, rightArr);
     }
 
     // Mergesort part of an array
-    private static void merge(int[] array, int[] leftArr, int[] rightArr) {
+    private static int[] merge(int[] array, int[] leftArr, int[] rightArr) {
         int left = leftArr.length;
         int right = rightArr.length;
 
@@ -128,6 +132,7 @@ public class Lab1 {
             j++;
             k++;
         }
+        return array;
     }
 
     // Swap two elements in an array

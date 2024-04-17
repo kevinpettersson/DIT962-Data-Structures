@@ -1,5 +1,5 @@
-package Lab1;
 //
+package Lab1;
 // HERE BE DRAGONS!
 //
 // You don't have to read any of this file.
@@ -62,20 +62,19 @@ public class Bench {
 
     public static Function<int[], int[]> quickSort = new Function<int[], int[]>() {
         @Override public int[] apply(int[] array) {
-            Lab1.quickSort(array, 0, array.length-1);
+            Lab1.quickSort(array);
             return array;
         }
     };
 
     public static Function<int[], int[]> mergeSort = new Function<int[], int[]>() {
         @Override public int[] apply(int[] array) {
-            Lab1.mergeSort(array);
-            return array;
+            return Lab1.mergeSort(array);
         }
     };
 
     // Execute an algorithm on an input and return its runtime.
-    static String execute(Function<int[], int[]> algorithm, int[] input) {
+    private static String execute(Function<int[], int[]> algorithm, int[] input) {
         // To get accurate results even for small inputs, we repeat
         // the algorithm several times in a row and count the total time.
         // We pick the number of repetitions automatically so that
@@ -186,5 +185,4 @@ public class Bench {
             execute(mergeSort,  sortedSample)
         ));
     }
-    
 }

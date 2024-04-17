@@ -37,6 +37,10 @@ public class User {
     public int getPrice(){ return this.price; }
 
     public boolean getIsBuyer(){ return this.isBuyer;}
+
+    // SETTERS \\
+
+    public void setPrice(int newPrice){ this.price = newPrice; }
     
     
 }

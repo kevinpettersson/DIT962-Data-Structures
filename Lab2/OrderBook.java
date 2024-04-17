@@ -1,7 +1,5 @@
 package Lab2;
 
-import java.util.Arrays;
-
 public class OrderBook {
 
     private Heap sellers;
@@ -20,7 +18,28 @@ public class OrderBook {
         }
     }
 
-    public void changeOrder(User user){
+    //Decides which queue the user should be searched for.
+    public void changeOrder(User user, int price){
+        if(user.getIsBuyer()){
+            change(user, buyers, price);
+
+        } else if(!user.getIsBuyer()){
+            change(user, sellers, price);
+        } else {
+            throw new IllegalAccessError("User hs no ongoing order");
+        }
+    }
+
+    //Help function to changeOrder, handles the logic for actaully changing the new price.
+    private void change(User user, Heap queue, int price){
+        
+        /*
+        for(User u : queue){
+            if(u.getName() == user.getName()){         ????     FIXA ITERATOR   ????
+            u.setPrice(price);
+        }
+    }
+         */
 
     }
 

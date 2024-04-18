@@ -2,7 +2,7 @@ package Lab2;
 
 public class Heap {
 
-    private int[] heap;
+    private User[] heap;
     private int size;
     private int capacity;
     private boolean isBuyer;
@@ -10,7 +10,7 @@ public class Heap {
     //Constructor for creating heap-objects.
     public Heap(int capacity, boolean isBuyer){
         this.capacity = capacity;                   //The intital capacity of the heap.
-        this.heap = new int[capacity];              //Create a new array of length capacity.
+        this.heap = new User[capacity];             //Create a new array of length capacity.
         this.size = 0;                              //Heap starts with 0 elements.
         this.isBuyer = isBuyer;                     //Decides if the heap is a min or max heap.          
     }
@@ -30,35 +30,29 @@ public class Heap {
 
     //If its a sell bid we call the minInsert method to place the element correct in the tree
     private void minInsert(User user){
-        heap[size] = user.getPrice();
+        heap[size] = user;
         int current = size;
         size++;
 
-        while (current != 0 && heap[current] < heap[getParent(current)]){
+        while(heap[current].getPrice() < heap[getParent(current)].getPrice()){
             swap(current, getParent(current));
-            current = getParent(current);
         }
 
     }
     //If its a buy bid we call the maxInsert method to place the element correct in the tree.
     private void maxInsert(User user){
-        heap[size] = user.getPrice();
+        heap[size] = user;
         int current = size;
         size++;
 
-        while(heap[current] > heap[getParent(current)]){
+        while(heap[current].getPrice() > heap[getParent(current)].getPrice()){
             swap(current, getParent(current));
-            current = getParent(current);
         }
     }
 
-
-
-
-
     //Method for swapping elements.
     public void swap(int parent, int child){
-        int tmp      = heap[parent];
+        User tmp     = heap[parent];
         heap[parent] = heap[child];
         heap[child]  = tmp;
     }
@@ -66,14 +60,15 @@ public class Heap {
     public void print(){
 
         for (int i = 0; i < heap.length; i++) {
-            System.out.print(heap[i] + " ");
+            if(heap[i] != null){
+                System.out.print(heap[i].getName() + " " + heap[i].getPrice() + ", ");
+            }
         }
-        System.out.println();
     }
 
     // GETTERS \\
 
-    public int getRoot(){ return heap[0]; }
+    public User getRoot(){ return heap[0]; }
 
     public int getParent(int child){ return (child-1)/2; }   
 

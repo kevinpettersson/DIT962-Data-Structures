@@ -47,11 +47,15 @@ public class OrderBook {
 
     }
     public void printOrders(){
+        System.out.println("Order Book: ");
 
-        System.out.println("Buyers left: ");
+        System.out.print("Buyers: ");
         buyers.print();
 
-        System.out.println("Sellers left: ");
+        System.out.println("");
+
+        System.out.print("Sellers: ");
+        
         sellers.print();
     }
 }

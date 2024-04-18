@@ -11,11 +11,15 @@ public class OrderBook {
     }
 
     public void addOrder(User user){
-        if(user.getIsBuyer()){
+        if(user.getPrice() < 70){
+            user.setPrice(70);
+        }
+        if (user.getIsBuyer()) {
             buyers.insert(user);
         } else {
             sellers.insert(user);
-        }
+            }
+
     }
 
     //Decides which queue the user should be searched for.
@@ -42,7 +46,6 @@ public class OrderBook {
          */
 
     }
-
     public void printOrders(){
 
         System.out.println("Buyers left: ");

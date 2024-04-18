@@ -21,9 +21,8 @@ public class Heap {
         if (this.size == this.capacity){
             throw new IllegalArgumentException("Heap is full.");
         }
-
         if(isBuyer){
-            //maxInsert(element);
+            maxInsert(user);
         } else {
             minInsert(user);
         }
@@ -31,22 +30,30 @@ public class Heap {
 
     //If its a sell bid we call the minInsert method to place the element correct in the tree
     private void minInsert(User user){
-
-    }
-
-    //If its a buy bid we call the maxInsert method to place the element correct in the tree.
-    /*
-         private void maxInsert(int element){
-        heap[size] = element;
+        heap[size] = user.getPrice();
         int current = size;
         size++;
 
-        while(heap[current] < heap[getParent(current)]){
+        while (current != 0 && heap[current] < heap[getParent(current)]){
+            swap(current, getParent(current));
+            current = getParent(current);
+        }
+
+    }
+    //If its a buy bid we call the maxInsert method to place the element correct in the tree.
+    private void maxInsert(User user){
+        heap[size] = user.getPrice();
+        int current = size;
+        size++;
+
+        while(heap[current] > heap[getParent(current)]){
             swap(current, getParent(current));
             current = getParent(current);
         }
     }
-     */
+
+
+
 
 
     //Method for swapping elements.
@@ -59,8 +66,9 @@ public class Heap {
     public void print(){
 
         for (int i = 0; i < heap.length; i++) {
-            System.out.print(heap[i]);
+            System.out.print(heap[i] + " ");
         }
+        System.out.println();
     }
 
     // GETTERS \\

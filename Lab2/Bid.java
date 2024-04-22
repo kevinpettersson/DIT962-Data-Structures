@@ -1,4 +1,4 @@
-package Lab2;
+package lab2;
 public class Bid {
 	final private String name;
 	private int price;

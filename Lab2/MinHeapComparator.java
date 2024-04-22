@@ -1,5 +1,4 @@
-package Lab2;
-
+package lab2;
 import java.util.Comparator;
 
 public class MinHeapComparator implements Comparator<Bid> {

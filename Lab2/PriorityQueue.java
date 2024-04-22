@@ -1,4 +1,4 @@
-package Lab2;
+package lab2;
 import java.util.*;
 // A priority queue.
 public class PriorityQueue<E> {

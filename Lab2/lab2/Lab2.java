@@ -5,15 +5,15 @@ public class Lab2 {
 
 	public static String pureMain(String[] commands) {
 		// TODO: declaration of two priority queue
-		PriorityQueue<Bid> buy_pq  = new PriorityQueue<Bid>(new MaxHeapComparator());
-		PriorityQueue<Bid> sell_pq = new PriorityQueue<Bid>(new MinHeapComparator());
+		PriorityQueue<Bid> buy_pq  = new PriorityQueue<>(new MaxHeapComparator());
+		PriorityQueue<Bid> sell_pq = new PriorityQueue<>(new MinHeapComparator());
 		
 
 		StringBuilder sb = new StringBuilder();
 
 		for(int line_no=0;line_no<commands.length;line_no++){
 			String line = commands[line_no];
-			if( line.equals("") )continue;
+			if(line.equals("") )continue;
 
 			String[] parts = line.split("\\s+");
 			if( parts.length != 3 && parts.length != 4)
@@ -89,7 +89,7 @@ public class Lab2 {
 				String buyer  = buy_pq.minimum().getName();
 				String seller = sell_pq.minimum().getName();
 				int sellPrice = sell_pq.minimum().getPrice();
-				print(buyer, seller, price);
+				print(buyer, seller, sellPrice);
 
 				sell_pq.deleteMinimum();
 				buy_pq.deleteMinimum();

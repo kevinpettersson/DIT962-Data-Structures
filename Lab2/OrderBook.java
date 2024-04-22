@@ -18,8 +18,7 @@ public class OrderBook {
             buyers.insert(user);
         } else {
             sellers.insert(user);
-            }
-
+        }
     }
 
     //Decides which queue the user should be searched for.
@@ -44,8 +43,8 @@ public class OrderBook {
         }
     }
          */
-
     }
+    
     public void printOrders(){
         System.out.println("Order Book: ");
 

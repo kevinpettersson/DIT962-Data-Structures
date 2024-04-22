@@ -13,20 +13,20 @@ public class User {
         this.isBuyer = isBuyer;
     }
 
-    public void createBid(User bidder){
+    public void createBid(User user){
 
         if(isBuyer){
-            placeBuyBid();
+            placeBuyBid(user);
         } else {
-            placeSellbid();
+            placeSellbid(user);
         }
     }
 
-    private void placeBuyBid(){
-
+    private void placeBuyBid(User user){
+        
     }
 
-    private void placeSellbid(){
+    private void placeSellbid(User user){
 
     }
 

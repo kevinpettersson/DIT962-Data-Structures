@@ -1,4 +1,5 @@
 package Lab2;
+
 import java.io.*;
 import java.util.*;
 
@@ -6,8 +7,8 @@ public class Lab2 {
 
 	public static String pureMain(String[] commands) {
 		// TODO: declaration of two priority queue
-		PriorityQueue<Bid> buy_pq  = new PriorityQueue(new MaxHeapComparator());
-		PriorityQueue<Bid> sell_pq = new PriorityQueue(new MinHeapComparator());
+		PriorityQueue<Bid> buy_pq  = new PriorityQueue<Bid>(new MaxHeapComparator());
+		PriorityQueue<Bid> sell_pq = new PriorityQueue<Bid>(new MinHeapComparator());
 		
 
 		StringBuilder sb = new StringBuilder();
